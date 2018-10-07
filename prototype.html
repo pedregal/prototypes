@@ -123,8 +123,16 @@
   z-index: 300000;
     opacity: .0;
 }
-
-
+#video_overlay10 {
+  position: absolute;
+  float: left;
+  top: 2150px;
+  width: 1080px;
+  height: 400px;
+  background-color: blue;
+  z-index: 300000;
+    opacity: .0;
+}
 
   </style>
   <!-- TODO: Missing CoffeeScript 2 -->
@@ -154,6 +162,7 @@
       <div id="video_overlay7" onclick="player.currentTime = 236; player.play();"></div>
       <div id="video_overlay8" onclick="player.currentTime = 278; player.play();"></div>
       <div id="video_overlay9" onclick="player.currentTime = 295; player.play();"></div>
+      <div id="video_overlay10" onclick="player.currentTime = 0; player.pause();"></div>
       <div>
         <video id="player" src="https://dl.dropboxusercontent.com/s/mtd30xfymi60dto/KhanFinal3.mp4" type="video/mp4" width="1080">Your browser does not support this streaming content.</video>
       </div>
