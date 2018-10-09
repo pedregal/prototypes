@@ -10,13 +10,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <script
+
+ <script
     type="text/javascript"
-    src="/js/lib/dummy.js"
-    
+    src="http://code.jquery.com/jquery-1.8.3.js"
   ></script>
 
-    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
 
   <style type="text/css">
     
@@ -134,23 +134,45 @@
     opacity: .0;
 }
 
+#time_box{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+	color: white;
+	font-size: 50px;
+}
+
+#currentTime {
+	margin-right:20px;
+  }
+
   </style>
   <!-- TODO: Missing CoffeeScript 2 -->
-
+ 
   <script type="text/javascript">
+	  function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
 
-
-    window.onload=function(){
-      
-
-
-    }
+    $(window).load(function(){
+setInterval(function(){
+$('#currentTime').html(fmtMSS(Math.round($('#player').get(0).currentTime)));
+$('#totalTime').html(fmtMSS(Math.round($('#player').get(0).duration)));    
+},500)
+    });
 
 </script>
+ 
+  <script type="text/javascript">
+    window.onload=function(){ 
+    }	
+</script>
+
+
+
 
 </head>
 <body>
-  
+<div id="time_box"><span  id="currentTime">0</span></div>
+
   <div id="wrap_video">
 <div id="video_box">
       <div id="video_overlay1" onclick="player.currentTime = 2; player.play();"></div>
@@ -164,7 +186,8 @@
       <div id="video_overlay9" onclick="player.currentTime = 295; player.play();"></div>
       <div id="video_overlay10" onclick="player.currentTime = 0; player.pause();"></div>
       <div>
-        <video id="player" src="https://dl.dropboxusercontent.com/s/mtd30xfymi60dto/KhanFinal3.mp4" type="video/mp4" width="1080">Your browser does not support this streaming content.</video>
+        <video id="player" src="https://dl.dropboxusercontent.com/s/kvmsnr426sen8ii/Khanwithbutton.mp4" type="video/mp4" width="1080" poster="https://dl.dropboxusercontent.com/s/wmkijdcg3bv3u27/frame1.png"
+		preload="auto">Your browser does not support this streaming content.</video>
       </div>
     </div>
   </div>
